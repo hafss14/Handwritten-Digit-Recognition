@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Digit Recognition </title>
+    <script type="text/javascript">
+        var current_model = 'cnn';
+    </script>
+</head>
+
+<body>
+    <p class="title common">Digit Recognition</p>
+
+    <div class="models">
+
+        <input type="radio" id="cnn" name="model" value="cnn">
+        <label for="cnn">CNN</label><br>
+        <input type="radio" id="knn" name="model" value="knn">
+        <label for="knn">k-Nearest Neighbor</label><br>
+        <input type="radio" id="svm" name="model" value="svm">
+        <label for="svm">Support Vector Machine</label><br> 
+        <input type="radio" id="rf" name="model" value="rf">
+        <label for="rf">Random Forest</label>
+    </div>
+    <p class="title common">Current Model: <span id="current-model">CNN</span></p>
+
+    
+    <br/>
+    <div class="common">
+        <div class="boxitem">
+            <canvas id="inputimg" width="196" height="196"></canvas>
+            <button id="clearbtn">Clear</button>
+        </div>
+    <div class="boxitem">
+            <div id="pred"></div>
+            <div id="prob">Probability : </div>
+        </div>
+        <!--<div class="boxitem">
+            <svg id="probGraph" width="250" height="196"></svg>
+        </div>-->
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
+    <script src="//d3js.org/d3.v5.min.js"></script>
+
+    <script type="text/javascript">
+
+        var map = {
+            'cnn': 'CNN',
+            'knn': 'k-Nearest Neighbor',
+            'svm': 'Support Vector Machine',
+            'rf': 'Random Forest'
+        };
+
+        $('input[type=radio]').change(function() {
+
+            current_model = this.value;
+
+            document.getElementById('current-model').innerHTML = map[this.value];
+            // console.log(this.value);
+        });
+
+    </script>
+</body>
