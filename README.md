@@ -1,11 +1,5 @@
 # Digit Recognition WebApp, PyTorch, Flask
 
-**Demo Site : https://digit-recog-torch.uc.r.appspot.com/**
-
-![Digit Recognition](./demo.gif)
-
-
-## Specific
 
 ### Neural Network
 
@@ -17,7 +11,7 @@
 ### Web Application
 
 - using Flask for web framework
-- using d3.js for drawing bar graph
+
 
 ## Requirements
 - `pip install -r requirements.txt`
